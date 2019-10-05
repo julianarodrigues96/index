@@ -1,0 +1,89 @@
+
+ 
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head><meta content="text/html; charset=UTF-8">
+    <title>Sistema de Funcionários</title>
+            <style type="text/css">
+                #ipai{margin-left:100px}
+                .filho{display:none}
+            </style>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">    
+            </script>
+            <script>
+                $(document).ready(function(){
+				 	var i=1;		  
+				$(document).on('click','.btn_mais',function(){
+						  
+					fieldset = '<fieldset class="filho">'
+                    fieldset += 'Nome <input type="text" placeholder="Digite o nome" name="nome[]" maxlength="30"><input type="button" value="Adicionar" class="btn_mais">'
+                    fieldset += '<br><br>'
+                    fieldset += 'Idade <input type="text" placeholder="Digite a idade" name="idade[]" maxlength="3"><input type="button" value="Excluir" class="btn_menos">'
+                	fieldset += '</fieldset>'
+					
+					$("#form").append(fieldset);
+					$(".filho").show();
+					i=i+1;
+					console.log(i);
+
+                  });
+				  
+                  
+				  $(document).on('click','.btn_menos',function(){
+                   
+			if (i >1) {
+				   $(this).parent().remove();
+					i=i-1;
+					}
+					
+					
+                  });
+				  
+                  $("#sim1").click(function(){
+                    $(".filho").show();
+                  });
+				  
+                  $("#nao1").click(function(){
+                    $(".filho").hide();
+                  });
+                });
+            </script>
+    </head>
+        <body>
+                    <h1>Sistema de Funcionários</h1>
+                    <hr><br>
+                    <form id="form" autocomplete="off" autocorrect="off" action="form.php" target="_self" method="POST">
+                        Nome <input type="text" placeholder="Digite o nome" name="nomepai" maxlength="30">
+                        <br><br>
+                        Idade <input type="text" placeholder="Digite a idade" name="idadepai" maxlength="3">
+                    <input type="submit" value="Enviar" id="ipai" class="btn">
+                    <br><br>
+                    <article>
+                    <div target="_self">
+                        <legend>Tem filhos?</legend>
+                        <p></p>
+                        <label>
+                          <input name="group1" type="radio" id="nao1" value="Não" checked>
+                          <span>Não</span>
+                        </label>
+                        <label>
+                          <input name="group1" type="radio" id="sim1" value="Sim">
+                          <span>Sim</span>
+                        </label>
+                    </div>
+                    </article>
+					
+					
+					<fieldset class="filho" id="fieldset1" >
+                    Nome <input type="text" placeholder="Digite o nome" name="nome[]" maxlength="30"><input type="button" value="Adicionar" class="btn_mais">
+                        <br><br>
+                    Idade <input type="text" placeholder="Digite a idade" name="idade[]" maxlength="3"><input type="button" value="Excluir" class="btn_menos">
+                			  
+				  </fieldset>
+					
+                    </form>
+                   
+				   
+       
+    </body>
+    </html>
